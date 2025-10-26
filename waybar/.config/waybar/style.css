@@ -105,13 +105,13 @@ tooltip label {
 
 #temperature.critical {
   color: #ff0000;
-  animation: blink 1s infinite;
+  /* animation: blink 1s infinite; */
 }
 
-@keyframes blink {
+/* @keyframes blink {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.5; }
-}
+} */
 
 #idle_inhibitor {
   color: #999999;
