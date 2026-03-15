@@ -1,0 +1,48 @@
+# FIREFLY btop theme - Firefly amber glow
+
+# Main background
+theme[main_bg]="#0d1117"
+
+# Main text color
+theme[main_fg]="#e8eaed"
+
+# Title color
+theme[title]="#ffb300"
+
+# Highlighted/selected items
+theme[hi_fg]="#ffd93d"
+
+# Graphs
+theme[graph_text]="#e8eaed"
+
+# Meter bars
+theme[meter_bg]="#2d3748"
+
+# Processes
+theme[proc_misc]="#ff9500"
+theme[cpu_box]="#ffb300"
+theme[mem_box]="#ff9500"
+theme[net_box]="#ffd93d"
+theme[proc_box]="#ffa94d"
+
+# Selected items
+theme[selected_bg]="#ffb300"
+theme[selected_fg]="#0d1117"
+
+# Inactive/disabled
+theme[inactive_fg]="#4a5568"
+
+# CPU colors (firefly glow gradient)
+theme[cpu_start]="#ff6b00"
+theme[cpu_mid]="#ff9500"
+theme[cpu_end]="#ffd93d"
+
+# Memory/Swap colors
+theme[free]="#2d3748"
+theme[cached]="#ff8c42"
+theme[available]="#ffa94d"
+theme[used]="#ffb300"
+
+# Download/Upload colors
+theme[download]="#51cf66"
+theme[upload]="#ff6b6b"

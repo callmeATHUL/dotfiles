@@ -1,0 +1,50 @@
+{
+  "name": "FIREFLY",
+  "type": "dark",
+  "colors": {
+    "editor.background": "#0d1117",
+    "editor.foreground": "#e8eaed",
+    "activityBarBadge.background": "#ffb300",
+    "sideBarTitle.foreground": "#e8eaed",
+    "editor.selectionBackground": "#ffb30066",
+    "editor.lineHighlightBackground": "#2d374866"
+  },
+  "tokenColors": [
+    {
+      "scope": ["comment"],
+      "settings": {
+        "foreground": "#4a5568"
+      }
+    },
+    {
+      "scope": ["keyword", "storage.type", "storage.modifier"],
+      "settings": {
+        "foreground": "#ff8c42"
+      }
+    },
+    {
+      "scope": ["string"],
+      "settings": {
+        "foreground": "#51cf66"
+      }
+    },
+    {
+      "scope": ["constant.numeric", "constant.language"],
+      "settings": {
+        "foreground": "#ffd93d"
+      }
+    },
+    {
+      "scope": ["entity.name.function", "support.function"],
+      "settings": {
+        "foreground": "#ffb300"
+      }
+    },
+    {
+      "scope": ["variable"],
+      "settings": {
+        "foreground": "#e8eaed"
+      }
+    }
+  ]
+}

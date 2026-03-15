@@ -1,0 +1,211 @@
+@import "../omarchy/current/theme/waybar.css";
+
+/* Accent (matches Hyprland active border) */
+@define-color accent #ff205e;
+@define-color accent-dim #6d0e41;
+@define-color surface rgba(255, 255, 255, 0.06);
+@define-color surface-hover rgba(255, 255, 255, 0.1);
+
+* {
+  background-color: @background;
+  color: @foreground;
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+  font-family: "JetBrainsMono Nerd Font", "Symbols Nerd Font";
+  font-size: 12px;
+}
+
+/* Bar */
+window#waybar {
+  background-color: @background;
+  padding: 0 4px;
+  min-height: 28px;
+}
+
+/* Left block */
+.modules-left {
+  margin-left: 6px;
+  padding: 0 4px;
+}
+
+/* Center block – workspaces + indicators */
+.modules-center {
+  padding: 0 8px;
+}
+
+/* Right block */
+.modules-right {
+  margin-right: 6px;
+  padding: 0 4px;
+}
+
+/* Workspaces – pill style */
+#workspaces {
+  padding: 0 4px;
+}
+
+#workspaces button {
+  all: unset;
+  padding: 4px 10px;
+  margin: 0 2px;
+  min-width: 24px;
+  border-radius: 12px;
+  font-weight: 600;
+  transition: background-color 0.15s, color 0.15s;
+}
+
+#workspaces button:hover {
+  /* no hover effect */
+}
+
+#workspaces button.active {
+  color: @accent;
+}
+
+#workspaces button.empty {
+  opacity: 0.4;
+  color: @foreground;
+}
+
+#workspaces button.urgent {
+  background-color: @accent;
+  color: @background;
+}
+
+/* Omarchy menu icon */
+#custom-omarchy {
+  font-size: 18px;
+  color: @accent;
+  min-width: 28px;
+  margin: 0 4px;
+  padding: 0 4px;
+  border-radius: 8px;
+  transition: background-color 0.15s;
+}
+
+#custom-omarchy:hover {
+  /* no hover effect */
+}
+
+/* System modules – icons with consistent spacing */
+#cpu,
+#battery,
+#pulseaudio,
+#network,
+#bluetooth,
+#custom-update {
+  min-width: 20px;
+  margin: 0 4px;
+  padding: 0 2px;
+  border-radius: 6px;
+  transition: background-color 0.15s, color 0.15s;
+}
+
+#cpu:hover,
+#battery:hover,
+#pulseaudio:hover,
+#network:hover,
+#bluetooth:hover,
+#clock:hover {
+  /* no hover effect */
+}
+
+#battery.warning {
+  color: #f59e0b;
+}
+
+#battery.critical {
+  color: @accent;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  50% { opacity: 0.7; }
+}
+
+#pulseaudio.muted {
+  color: @accent-dim;
+}
+
+/* Clock */
+#clock {
+  margin: 0 4px 0 6px;
+  padding: 0 6px;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: background-color 0.15s;
+}
+
+#clock:hover {
+  /* no hover effect */
+}
+
+/* Network & Bluetooth – spacing from shared rule above */
+
+#bluetooth.connected {
+  color: @accent;
+}
+
+/* Tray (group/tray-expander) */
+#tray,
+#custom-expand-icon {
+  margin: 0 4px;
+  padding: 0 2px;
+}
+
+#group-tray-expander {
+  margin-right: 0;
+}
+
+/* Tooltips */
+tooltip {
+  background-color: @background;
+  color: @foreground;
+  border: 1px solid @surface-hover;
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-size: 11px;
+}
+
+/* Custom indicators */
+#custom-update {
+  font-size: 11px;
+}
+
+#custom-screenrecording-indicator,
+#custom-idle-indicator,
+#custom-notification-silencing-indicator {
+  min-width: 18px;
+  margin: 0 3px;
+  font-size: 11px;
+  padding: 0 2px;
+  border-radius: 4px;
+  transition: background-color 0.15s;
+}
+
+#custom-screenrecording-indicator.active,
+#custom-idle-indicator.active,
+#custom-notification-silencing-indicator.active {
+  color: @accent;
+  background-color: @surface;
+}
+
+#custom-voxtype {
+  min-width: 18px;
+  margin: 0 4px;
+  padding: 0 2px;
+  border-radius: 4px;
+}
+
+#custom-voxtype.recording {
+  color: @accent;
+  background-color: @surface;
+}
+
+.hidden {
+  opacity: 0;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+}

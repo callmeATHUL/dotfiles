@@ -1,0 +1,40 @@
+.main-container {
+  background-color: rgba(255, 255, 255, 0.1); /* More transparent white */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Transparent white border */
+  border-radius: 8px;
+  padding: 8px 12px; /* Reduced padding for minimalism */
+  backdrop-filter: blur(10px);
+  min-width: 180px;
+}
+
+/* Title and line styles are no longer needed as per eww.yuck changes */
+/*
+.title {
+  font-family: "JetBrains Mono";
+  font-size: 9px;
+  letter-spacing: 4px;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.line {
+  background-color: rgba(255, 255, 255, 0.2);
+  min-height: 1px;
+  margin-bottom: 15px;
+}
+*/
+
+.task-entry {
+  font-family: "Inter", "sans-serif"; /* Ensure a clean sans-serif fallback */
+  font-size: 10px; /* Slightly smaller font for tasks */
+  color: rgba(255, 255, 255, 0.8); /* Slightly brighter white for readability */
+  margin-bottom: 2px; /* Small margin between tasks */
+  padding: 2px 0;
+}
+
+/* Adding a hover effect for tasks for better UX */
+.task-entry:hover {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}

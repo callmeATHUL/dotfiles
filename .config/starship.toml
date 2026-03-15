@@ -1,0 +1,147 @@
+# Starship Prompt Configuration - Enhanced FIREFLY Theme
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Inserts a blank line between shell prompts
+add_newline = true
+command_timeout = 1000
+
+# Enhanced format with more info
+format = """
+[┌─](bold #ffb300)\
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_status\
+$python\
+$nodejs\
+$rust\
+$golang\
+$java\
+$docker_context\
+$package\
+$cmd_duration\
+$line_break\
+[└─](bold #ffb300)$character"""
+
+# Character
+[character]
+success_symbol = "[❯](bold #51cf66)"
+error_symbol = "[❯](bold #ff6b6b)"
+vimcmd_symbol = "[❮](bold #51cf66)"
+
+# Username (shown when not default user)
+[username]
+show_always = false
+format = "[$user]($style)@"
+style_user = "bold #ffd93d"
+style_root = "bold #ff6b6b"
+
+# Hostname (shown in SSH)
+[hostname]
+ssh_only = true
+format = "[$hostname]($style) in "
+style = "bold #ffd93d"
+
+# Directory
+[directory]
+truncation_length = 3
+truncation_symbol = "…/"
+style = "bold #ffb300"
+read_only = " 󰌾"
+read_only_style = "#ff6b6b"
+repo_root_style = "bold #ffb300"
+repo_root_format = "[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style) "
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+"Videos" = " "
+"~" = " "
+
+# Git Branch
+[git_branch]
+format = "on [$symbol$branch]($style) "
+symbol = " "
+style = "bold #ffa94d"
+
+# Git Status
+[git_status]
+format = '([\[$all_status$ahead_behind\]]($style) )'
+style = "bold #ff9500"
+conflicted = "🏳"
+ahead = "⇡${count}"
+behind = "⇣${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+up_to_date = ""
+untracked = "?${count}"
+stashed = "$${count}"
+modified = "!${count}"
+staged = "+${count}"
+renamed = "»${count}"
+deleted = "✘${count}"
+
+# Programming Languages
+[python]
+format = 'via [${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+symbol = " "
+style = "#51cf66"
+
+[nodejs]
+format = "via [$symbol($version )]($style)"
+symbol = " "
+style = "#51cf66"
+
+[rust]
+format = "via [$symbol($version )]($style)"
+symbol = " "
+style = "#ffa94d"
+
+[golang]
+format = "via [$symbol($version )]($style)"
+symbol = " "
+style = "#51cf66"
+
+[java]
+format = "via [$symbol($version )]($style)"
+symbol = " "
+style = "#ffa94d"
+
+# Docker
+[docker_context]
+format = "via [$symbol$context]($style) "
+symbol = " "
+style = "#51cf66"
+
+# Package Version
+[package]
+format = "is [$symbol$version]($style) "
+symbol = "󰏗 "
+style = "#ffd93d"
+disabled = false
+
+# Command Duration
+[cmd_duration]
+min_time = 500
+format = "took [$duration]($style) "
+style = "#4a5568"
+
+# Line Break
+[line_break]
+disabled = false
+
+# AWS
+[aws]
+format = 'on [$symbol($profile )(\($region\) )]($style)'
+symbol = "☁️ "
+style = "#ffd93d"
+
+# Battery
+[battery]
+full_symbol = "🔋"
+charging_symbol = "⚡"
+discharging_symbol = "💀"
+disabled = true

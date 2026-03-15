@@ -1,0 +1,44 @@
+# FIREFLY Theme for Alacritty Terminal
+# Firefly amber/orange glow color scheme
+
+[colors.primary]
+background = "#0d1117"
+foreground = "#e8eaed"
+
+[colors.cursor]
+text = "#0d1117"
+cursor = "#ffd54f"
+
+[colors.selection]
+text = "#0d1117"
+background = "#ffb300"
+
+[colors.normal]
+black = "#2d3748"
+red = "#ff6b6b"
+green = "#51cf66"
+yellow = "#ffd93d"
+blue = "#ff9500"
+magenta = "#ff8c42"
+cyan = "#ffb74d"
+white = "#cbd5e0"
+
+[colors.bright]
+black = "#4a5568"
+red = "#ff8787"
+green = "#69db7c"
+yellow = "#ffe066"
+blue = "#ffaa00"
+magenta = "#ffa94d"
+cyan = "#ffc078"
+white = "#f7fafc"
+
+# Additional accent colors
+[colors.indexed_colors]
+[[colors.indexed_colors]]
+index = 16
+color = "#ffb300"  # Firefly amber accent
+
+[[colors.indexed_colors]]
+index = 17
+color = "#ffd93d"  # Firefly yellow glow

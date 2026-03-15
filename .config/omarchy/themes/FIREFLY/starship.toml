@@ -1,0 +1,131 @@
+# FIREFLY Theme for Starship Prompt
+# Firefly amber/orange glow color scheme
+
+add_newline = true
+command_timeout = 200
+
+# Custom FIREFLY format with branding
+format = """
+[╭─](bold #ffb300)\
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_status\
+$git_state\
+$git_metrics\
+$fill\
+$cmd_duration\
+$time
+[╰─](bold #ffb300)$character"""
+
+# Character (prompt symbol)
+[character]
+success_symbol = "[❯](bold #ffb300)"  # Firefly amber
+error_symbol = "[✗](bold #ff6b6b)"    # Red for errors
+vimcmd_symbol = "[❮](bold #ffd93d)"   # Firefly yellow
+
+# Username
+[username]
+format = "[$user]($style) "
+style_user = "bold #ffb300"
+style_root = "bold #ff6b6b"
+show_always = false
+
+# Hostname
+[hostname]
+format = "[@$hostname]($style) "
+style = "bold #ffd93d"
+ssh_only = true
+
+# Directory
+[directory]
+truncation_length = 3
+truncation_symbol = "…/"
+style = "bold #ffd93d"
+repo_root_style = "bold #ffb300"
+repo_root_format = "[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style) "
+read_only = " 󰌾"
+read_only_style = "#ff6b6b"
+
+# Git branch
+[git_branch]
+format = "[$symbol$branch]($style) "
+symbol = " "
+style = "italic #ff9500"
+
+# Git status
+[git_status]
+format = '[$all_status$ahead_behind]($style)'
+style = "#ffb300"
+ahead = "⇡${count} "
+diverged = "⇕⇡${ahead_count}⇣${behind_count} "
+behind = "⇣${count} "
+conflicted = " "
+up_to_date = " "
+untracked = "?${count} "
+modified = " ${count} "
+stashed = ""
+staged = ""
+renamed = "»${count} "
+deleted = "✘${count} "
+
+# Git state (rebase, merge, etc.)
+[git_state]
+format = '[\($state( $progress_current of $progress_total)\)]($style) '
+style = "#ffd93d"
+
+# Git metrics
+[git_metrics]
+disabled = false
+added_style = "#51cf66"
+deleted_style = "#ff6b6b"
+format = '[+$added]($added_style) [-$deleted]($deleted_style) '
+
+# Command duration
+[cmd_duration]
+min_time = 500
+format = "[$duration]($style) "
+style = "#4a5568"
+
+# Time
+[time]
+disabled = false
+format = "[$time]($style)"
+style = "#4a5568"
+time_format = "%T"
+
+# Fill (spaces between left and right)
+[fill]
+symbol = " "
+
+# Language-specific modules with FIREFLY colors
+[nodejs]
+format = "[$symbol($version )]($style)"
+symbol = " "
+style = "#51cf66"
+
+[python]
+format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+symbol = " "
+style = "#ffd93d"
+
+[rust]
+format = "[$symbol($version )]($style)"
+symbol = " "
+style = "#ff9500"
+
+[golang]
+format = "[$symbol($version )]($style)"
+symbol = " "
+style = "#ffb300"
+
+[docker_context]
+format = "[$symbol$context]($style) "
+symbol = " "
+style = "#ff9500"
+
+[package]
+format = "[$symbol$version]($style) "
+symbol = "📦 "
+style = "#ffb300"

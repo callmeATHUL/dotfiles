@@ -1,0 +1,12 @@
+;; ZERO-DAY FateScript — Eww widget for Hyprland
+;; Poll task list every second (script outputs JSON array of task strings)
+(defpoll task_list :interval "1s" "scripts/manage_tasks.sh get")
+
+(defwindow zeroday
+  :monitor 0
+  :geometry (geometry :x "20px" :y "20px" :anchor "top right")
+  :stacking "fg"
+  (box :class "main-container" :orientation "v" :space-evenly false
+    (box :class "items-box" :orientation "v" :spacing 5
+      (for entry in task_list
+        (label :class "task-entry" :text "— ${entry}" :halign "start")))))

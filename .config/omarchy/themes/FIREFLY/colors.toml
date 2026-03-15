@@ -1,0 +1,27 @@
+# FIREFLY Theme - Amber/Orange Firefly Glow
+# Inspired by the bioluminescence of fireflies
+
+accent = "#ffb300"           # Firefly amber glow
+cursor = "#ffd54f"           # Bright firefly yellow
+foreground = "#e8eaed"       # Light gray foreground
+background = "#0d1117"       # Deep dark background (night sky)
+selection_foreground = "#0d1117"
+selection_background = "#ffb300"
+
+# Standard terminal colors
+color0 = "#2d3748"   # Black
+color1 = "#ff6b6b"   # Red
+color2 = "#51cf66"   # Green
+color3 = "#ffd93d"   # Yellow (firefly glow)
+color4 = "#ff9500"   # Blue (orange accent)
+color5 = "#ff8c42"   # Magenta (orange-red)
+color6 = "#ffb74d"   # Cyan (golden)
+color7 = "#cbd5e0"   # White
+color8 = "#4a5568"   # Bright black
+color9 = "#ff8787"   # Bright red
+color10 = "#69db7c"  # Bright green
+color11 = "#ffe066"  # Bright yellow
+color12 = "#ffaa00"  # Bright blue (amber)
+color13 = "#ffa94d"  # Bright magenta (orange)
+color14 = "#ffc078"  # Bright cyan (golden orange)
+color15 = "#f7fafc"  # Bright white

@@ -1,0 +1,46 @@
+# FIREFLY Theme for Ghostty Terminal
+# Firefly amber/orange glow color scheme
+
+# Background and foreground
+background = 0d1117
+foreground = e8eaed
+
+# Cursor
+cursor-color = ffd54f
+cursor-text = 0d1117
+
+# Selection
+selection-background = ffb300
+selection-foreground = 0d1117
+
+# Black
+palette = 0=#2d3748
+palette = 8=#4a5568
+
+# Red
+palette = 1=#ff6b6b
+palette = 9=#ff8787
+
+# Green
+palette = 2=#51cf66
+palette = 10=#69db7c
+
+# Yellow (Firefly glow)
+palette = 3=#ffd93d
+palette = 11=#ffe066
+
+# Blue (Orange accent)
+palette = 4=#ff9500
+palette = 12=#ffaa00
+
+# Magenta (Orange-red)
+palette = 5=#ff8c42
+palette = 13=#ffa94d
+
+# Cyan (Golden)
+palette = 6=#ffb74d
+palette = 14=#ffc078
+
+# White
+palette = 7=#cbd5e0
+palette = 15=#f7fafc
