@@ -4,6 +4,10 @@
 if status is-interactive
     # Commands to run in interactive sessions can go here
 
+    # Animated Neofetch Splash (dionysus at ~/.config/neofetch/)
+    ~/.config/neofetch/animated-neofetch.sh 0.05
+    clear
+
     # Initialize Starship prompt
     starship init fish | source
 
@@ -64,6 +68,22 @@ if status is-interactive
     # Network
     alias ports 'ss -tulanp'
     alias myip 'curl -s ifconfig.me'
+
+    # MSSQL k8s port-forward (saib namespace)
+    function mssql-start
+        kubectl port-forward -n saib svc/mssql 1433:1433 &>/tmp/mssql-pf.log &
+        echo "mssql port-forward started (PID $last_pid) — localhost:1433"
+    end
+    function mssql-stop
+        pkill -f 'kubectl port-forward -n saib svc/mssql' && echo "mssql port-forward stopped" || echo "not running"
+    end
+    function mssql-status
+        if pgrep -f 'kubectl port-forward -n saib svc/mssql' > /dev/null
+            echo "running (PID "(pgrep -f 'kubectl port-forward -n saib svc/mssql')")"
+        else
+            echo "not running"
+        end
+    end
 
     # Disk usage
     alias du 'du -h'
@@ -165,7 +185,19 @@ if status is-interactive
     #     echo -n " ❯ "
     # end
 
+    # Cursor MCP: MS SQL (mssql-saib in ~/.cursor/mcp.json — uses ${env:MSSQL_*})
+    # Fish: set -gx exports to child processes. Restart Cursor after editing; launch Cursor from this shell if MCP env is missing.
+    set -gx MSSQL_SERVER 150.230.247.43
+    set -gx MSSQL_PORT 8804
+    set -gx MSSQL_DATABASE EMSSAIB
+    set -gx MSSQL_USER SAIBEMS_DB
+    set -gx MSSQL_PASSWORD 'SAIBEMS_DB@2026'
+    set -gx MSSQL_ENCRYPT false
+    set -gx MSSQL_TRUST_SERVER_CERTIFICATE true
+    set -gx MSSQL_DEFAULT_SCHEMA SAIB_SCHEMA
+
     # MCP Server Environment Variables
+    set -gx GITHUB_TOKEN (gh auth token 2>/dev/null)
     set -gx BRAVE_API_KEY BSAbDqNGFqhgzH9n1uESkBOTvlZxdJB
     set -gx GITLAB_PERSONAL_ACCESS_TOKEN ITS-e33-u7glWZG32uLstBSBPm86MQp1OjRhCA.01.0y1wr78l6
     set -gx GITLAB_API_URL https://gitlab.interlandtech.com/api/v4

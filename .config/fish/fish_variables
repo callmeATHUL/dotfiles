@@ -1,4 +1,6 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
+SETUVAR --export OPENROUTER_API_KEY:sk\x2dor\x2dv1\x2d453c4523cec7ca9de8c5c35a95c05c4c9ffc84bed88e2a93dcfc06bc44d5c5dc
 SETUVAR __fish_initialized:4300
 SETUVAR __fish_webconfig_theme_notification:set\x2dtheme\x2dv1\x2d\x231
+SETUVAR fish_user_paths:/opt/mssql\x2dtools/bin\x1e/home/firefly/\x2elocal/bin

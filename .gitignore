@@ -1,0 +1,13 @@
+# backups
+*.bak
+*.bak.*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# secrets - never commit
+.env
+.env.*
+*.pem
+*.key

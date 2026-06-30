@@ -1,211 +1,222 @@
-@import "../omarchy/current/theme/waybar.css";
+/* ============================================================
+   WAYBAR — FIREFLY EDITION
+   ~/.config/waybar/style.css
+   ============================================================ */
 
-/* Accent (matches Hyprland active border) */
-@define-color accent #ff205e;
-@define-color accent-dim #6d0e41;
-@define-color surface rgba(255, 255, 255, 0.06);
-@define-color surface-hover rgba(255, 255, 255, 0.1);
-
-* {
-  background-color: @background;
-  color: @foreground;
-  border: none;
-  border-radius: 0;
-  min-height: 0;
-  font-family: "JetBrainsMono Nerd Font", "Symbols Nerd Font";
-  font-size: 12px;
+   * {
+    font-family: "JetBrainsMono Nerd Font", "Symbols Nerd Font", sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    min-height: 0;
 }
 
-/* Bar */
 window#waybar {
-  background-color: @background;
-  padding: 0 4px;
-  min-height: 28px;
+    background: rgba(15, 15, 20, 0.92);
+    border-bottom: 2px solid rgba(255, 32, 94, 0.30);
+    color: #ffffff;
+    transition: all 0.3s ease;
 }
 
-/* Left block */
-.modules-left {
-  margin-left: 6px;
-  padding: 0 4px;
+/* ============================================================
+   SHARED MODULE BASE
+   ============================================================ */
+#workspaces,
+#cpu, #memory, #temperature, #disk,
+#window, #mpris,
+#custom-weather,
+#network, #bluetooth, #backlight, #pulseaudio, #battery,
+#clock, #clock.center,
+#custom-omarchy, #custom-update, #custom-power {
+    padding: 0 10px;
+    margin: 4px 2px;
+    border-radius: 6px;
 }
 
-/* Center block – workspaces + indicators */
-.modules-center {
-  padding: 0 8px;
+/* ============================================================
+   LEFT — logo / launcher
+   ============================================================ */
+#custom-omarchy {
+    color: #ffffff;
+    font-size: 13px;
+    letter-spacing: 1px;
+    padding-left: 14px;
+    padding-right: 14px;
+    margin-left: 2px;
 }
 
-/* Right block */
-.modules-right {
-  margin-right: 6px;
-  padding: 0 4px;
-}
-
-/* Workspaces – pill style */
+/* ============================================================
+   LEFT — workspaces
+   ============================================================ */
 #workspaces {
-  padding: 0 4px;
+    padding: 0 4px;
 }
 
 #workspaces button {
-  all: unset;
-  padding: 4px 10px;
-  margin: 0 2px;
-  min-width: 24px;
-  border-radius: 12px;
-  font-weight: 600;
-  transition: background-color 0.15s, color 0.15s;
-}
-
-#workspaces button:hover {
-  /* no hover effect */
+    padding: 0 6px;
+    color: rgba(255, 255, 255, 0.578);
+    background: transparent;
+    border: none;
+    border-radius: 4px;
+    transition: color 0.2s;
 }
 
 #workspaces button.active {
-  color: @accent;
-}
-
-#workspaces button.empty {
-  opacity: 0.4;
-  color: @foreground;
+    color: #ffffff;
+    background: rgba(255, 32, 95, 0);
 }
 
 #workspaces button.urgent {
-  background-color: @accent;
-  color: @background;
+    color: #31e10e;
 }
 
-/* Omarchy menu icon */
-#custom-omarchy {
-  font-size: 18px;
-  color: @accent;
-  min-width: 28px;
-  margin: 0 4px;
-  padding: 0 4px;
-  border-radius: 8px;
-  transition: background-color 0.15s;
+/* ============================================================
+   LEFT — system stats
+   ============================================================ */
+#cpu        { color: #89dceb; background: rgba(137, 220, 235, 0); }
+#memory     { color: #fab387; background: rgba(250, 179, 135, 0); }
+#temperature { color: #f9e2af; background: rgba(249, 225, 175, 0); }
+#disk       { color: #a6e3a1; background: rgba(166, 227, 161, 0); }
+
+#temperature.critical {
+    color: #f38ba8;
 }
 
-#custom-omarchy:hover {
-  /* no hover effect */
+/* ============================================================
+   CENTER — clock
+   ============================================================ */
+#clock.center {
+    color: #ffffff;
+    font-size: 12.5px;
+    background: transparent;
 }
 
-/* System modules – icons with consistent spacing */
-#cpu,
-#battery,
-#pulseaudio,
-#network,
-#bluetooth,
-#custom-update {
-  min-width: 20px;
-  margin: 0 4px;
-  padding: 0 2px;
-  border-radius: 6px;
-  transition: background-color 0.15s, color 0.15s;
-}
-
-#cpu:hover,
-#battery:hover,
-#pulseaudio:hover,
-#network:hover,
-#bluetooth:hover,
-#clock:hover {
-  /* no hover effect */
-}
-
-#battery.warning {
-  color: #f59e0b;
-}
-
-#battery.critical {
-  color: @accent;
-  animation: pulse 1.5s ease-in-out infinite;
-}
-
-@keyframes pulse {
-  50% { opacity: 0.7; }
-}
+/* ============================================================
+   RIGHT — info modules
+   ============================================================ */
+#custom-weather { color: #89b4fa; background: rgba(137, 180, 250, 0); }
+#network        { color: #89dceb; background: rgba(137, 220, 235, 0); }
+#bluetooth      { color: #b4befe; background: rgba(180, 190, 254, 0); }
+#backlight      { color: #f9e2af; background: rgba(249, 225, 175, 0); }
+#pulseaudio     { color: #f5c2e7; background: rgba(245, 194, 231, 0); }
+#battery        { color: #a6e3a1; background: rgba(166, 227, 161, 0); }
 
 #pulseaudio.muted {
-  color: @accent-dim;
+    color: rgba(245, 194, 231, 0.35);
 }
 
-/* Clock */
+#battery.warning  { color: #f9e2af; background: rgba(249, 225, 175, 0); }
+#battery.critical { color: #f38ba8; background: rgba(243, 139, 168, 0); }
+
+#battery.charging,
+#battery.plugged  { color: #a6e3a1; }
+
+/* ============================================================
+   RIGHT — clock pill (icon / date, right side)
+   ============================================================ */
 #clock {
-  margin: 0 4px 0 6px;
-  padding: 0 6px;
-  border-radius: 6px;
-  font-weight: 500;
-  transition: background-color 0.15s;
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0);
+    border: 0.5px solid rgba(255, 255, 255, 0);
+    border-radius: 8px;
+    padding: 0 12px;
 }
 
-#clock:hover {
-  /* no hover effect */
-}
-
-/* Network & Bluetooth – spacing from shared rule above */
-
-#bluetooth.connected {
-  color: @accent;
-}
-
-/* Tray (group/tray-expander) */
-#tray,
-#custom-expand-icon {
-  margin: 0 4px;
-  padding: 0 2px;
-}
-
-#group-tray-expander {
-  margin-right: 0;
-}
-
-/* Tooltips */
-tooltip {
-  background-color: @background;
-  color: @foreground;
-  border: 1px solid @surface-hover;
-  border-radius: 8px;
-  padding: 6px 10px;
-  font-size: 11px;
-}
-
-/* Custom indicators */
+/* ============================================================
+   RIGHT — update indicator
+   ============================================================ */
 #custom-update {
-  font-size: 11px;
+    color: #f9e2af;
+    padding: 0 10px;
+    margin: 4px 2px;
+    border-radius: 6px;
 }
 
-#custom-screenrecording-indicator,
-#custom-idle-indicator,
-#custom-notification-silencing-indicator {
-  min-width: 18px;
-  margin: 0 3px;
-  font-size: 11px;
-  padding: 0 2px;
-  border-radius: 4px;
-  transition: background-color 0.15s;
+/* ============================================================
+   RIGHT — power button
+   ============================================================ */
+#custom-power {
+    color: #ff205e;
+    font-size: 14px;
+    padding-right: 14px;
+    margin-right: 2px;
 }
 
-#custom-screenrecording-indicator.active,
-#custom-idle-indicator.active,
-#custom-notification-silencing-indicator.active {
-  color: @accent;
-  background-color: @surface;
+/* ============================================================
+   MPRIS (media player — shown when active)
+   ============================================================ */
+#mpris {
+    color: #ff205e;
+    background: rgba(255, 32, 94, 0.08);
+    border: 0.5px solid rgba(255, 32, 94, 0.20);
+    border-radius: 12px;
+    padding: 0 14px;
 }
 
-#custom-voxtype {
-  min-width: 18px;
-  margin: 0 4px;
-  padding: 0 2px;
-  border-radius: 4px;
+/* ============================================================
+   WINDOW TITLE
+   ============================================================ */
+#window {
+    color: rgba(255, 255, 255, 0.55);
+    font-style: italic;
 }
 
-#custom-voxtype.recording {
-  color: @accent;
-  background-color: @surface;
+/* ============================================================
+   TRAY
+   ============================================================ */
+#tray {
+    padding: 0 8px;
+    margin: 4px 2px;
 }
 
-.hidden {
-  opacity: 0;
-  min-width: 0;
-  margin: 0;
-  padding: 0;
+#tray > .passive {
+    -gtk-icon-effect: dim;
 }
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: rgba(255, 32, 94, 0.15);
+    border-radius: 6px;
+}
+
+/* ============================================================
+   TOOLTIPS
+   ============================================================ */
+tooltip {
+    background: rgba(15, 15, 20, 0.96);
+    border: 1px solid rgba(255, 32, 94, 0.40);
+    border-radius: 8px;
+}
+
+tooltip label {
+    color: #ffffff;
+    padding: 6px 10px;
+    font-size: 12px;
+}
+
+/* ============================================================
+   NO HOVER EFFECTS
+   ============================================================ */
+#cpu:hover,
+#memory:hover,
+#temperature:hover,
+#disk:hover,
+#window:hover,
+#mpris:hover,
+#custom-weather:hover,
+#network:hover,
+#bluetooth:hover,
+#backlight:hover,
+#pulseaudio:hover,
+#battery:hover,
+#clock:hover,
+#clock.center:hover,
+#custom-power:hover,
+#custom-update:hover,
+#custom-omarchy:hover,
+#workspaces button:hover {
+    background: transparent;
+    border-color: transparent;
+    box-shadow: none;
+    outline: none;
+}
+
